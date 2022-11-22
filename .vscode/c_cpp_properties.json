@@ -3,13 +3,11 @@
     {
       "name": "linux-gcc-x64",
       "includePath": [
-        "${workspaceFolder}/**",
-        "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F3xx/Include",
-        "${workspaceFolder}/Drivers/CMSIS/Include"
+        "${workspaceFolder}/**"
       ],
       "compilerPath": "/usr/bin/gcc",
-      "cStandard": "c11",
-      "cppStandard": "c++17",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
       "intelliSenseMode": "linux-gcc-x64",
       "compilerArgs": [
         ""
