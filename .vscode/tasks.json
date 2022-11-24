@@ -5,11 +5,18 @@
             "type": "cppbuild",
             "label": "Build project",
             "command": "cmake",
-            "args": ["--build", "${command:cmake.buildDirectory}", "-j", "8"],
+            "args": [
+                "--build",
+                "${command:cmake.buildDirectory}",
+                "-j",
+                "8"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -19,17 +26,31 @@
             "type": "shell",
             "label": "Re-build project",
             "command": "cmake",
-            "args": ["--build", "${command:cmake.buildDirectory}", "--clean-first", "-v", "-j", "8"],
+            "args": [
+                "--build",
+                "${command:cmake.buildDirectory}",
+                "--clean-first",
+                "-v",
+                "-j",
+                "8"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "type": "shell",
             "label": "Clean project",
             "command": "cmake",
-            "args": ["--build", "${command:cmake.buildDirectory}", "--target", "clean"],
+            "args": [
+                "--build",
+                "${command:cmake.buildDirectory}",
+                "--target",
+                "clean"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -42,7 +63,8 @@
             "args": [
                 "--connect",
                 "port=swd",
-                "--download", "${command:cmake.launchTargetPath}",
+                "--download",
+                "${command:cmake.launchTargetPath}",
                 "-hardRst"
             ],
             "options": {
@@ -58,7 +80,8 @@
                 "--connect",
                 "port=swd",
                 "sn=<yourserialnumber>",
-                "--download", "${command:cmake.launchTargetPath}",
+                "--download",
+                "${command:cmake.launchTargetPath}",
                 "-hardRst"
             ],
             "options": {
@@ -71,12 +94,50 @@
             "label": "CubeProg: List all available communication interfaces",
             "command": "STM32_Programmer_CLI",
             "args": [
-                "--list",
+                "--list"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": []
         },
+        {
+            "type": "shell",
+            "label": "Prepare tests",
+            "command": "cmake",
+            "args": [
+                "-S",
+                "${workspaceFolder}/test",
+                "-B",
+                "${workspaceFolder}/test/build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Build tests",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/test/build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Ctest",
+            "command": "(pushd ${workspaceFolder}/test/build && ctest; popd) ",
+            "problemMatcher": []
+        }
     ]
 }

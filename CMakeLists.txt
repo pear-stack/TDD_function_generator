@@ -4,9 +4,10 @@ cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD                11)
 set(CMAKE_C_STANDARD_REQUIRED       ON)
 set(CMAKE_C_EXTENSIONS              ON)
-set(CMAKE_CXX_STANDARD              20)
+set(CMAKE_CXX_STANDARD              14)
 set(CMAKE_CXX_STANDARD_REQUIRED     ON)
 set(CMAKE_CXX_EXTENSIONS            ON)
+
 set(PROJ_PATH                       ${CMAKE_CURRENT_SOURCE_DIR})
 message("Build type: "              ${CMAKE_BUILD_TYPE})
 
@@ -41,6 +42,7 @@ set(sources_SRCS
     ${PROJ_PATH}/src/main.c
     ${PROJ_PATH}/src/stm32f3xx_it.c
     ${PROJ_PATH}/src/system_stm32f3xx.c
+    ${PROJ_PATH}/src/AD9833_driver.c
 )
 
 #

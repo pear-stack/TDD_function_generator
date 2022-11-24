@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Debug Microcontroller - STLink-V3",
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceRoot}",
       "type": "cortex-debug",
       "executable": "${command:cmake.launchTargetPath}",
       "request": "launch",
