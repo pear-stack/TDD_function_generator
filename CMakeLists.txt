@@ -14,7 +14,7 @@ message("Build type: "              ${CMAKE_BUILD_TYPE})
 #
 # Core project settings
 #
-project(STM32F303RE)
+project(TDD_function_generator)
 enable_language(C CXX ASM)
 
 #
@@ -39,19 +39,19 @@ set(EXECUTABLE                      ${CMAKE_PROJECT_NAME})
 #
 set(sources_SRCS
     ${PROJ_PATH}/startup_stm32f303xe.s
-    ${PROJ_PATH}/src/main.c
-    ${PROJ_PATH}/src/stm32f3xx_it.c
-    ${PROJ_PATH}/src/system_stm32f3xx.c
-    ${PROJ_PATH}/src/AD9833_driver.c
+    ${PROJ_PATH}/source/main.c
+    ${PROJ_PATH}/source/stm32f3xx_it.c
+    ${PROJ_PATH}/source/system_stm32f3xx.c
+    ${PROJ_PATH}/source/AD9833_driver.c
 )
 
 #
 # Include directories
 #
 set(include_path_DIRS
-    ${PROJ_PATH}/inc
-    ${PROJ_PATH}/Drivers/CMSIS/Device/ST/STM32F3xx/Include
-    ${PROJ_PATH}/Drivers/CMSIS/Include
+    ${PROJ_PATH}/include
+    ${PROJ_PATH}/drivers/CMSIS/Device/ST/STM32F3xx/Include
+    ${PROJ_PATH}/drivers/CMSIS/Include
 )
 
 #

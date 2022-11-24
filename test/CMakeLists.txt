@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD              14)
 set(CMAKE_CXX_STANDARD_REQUIRED     ON)
 set(CMAKE_CXX_EXTENSIONS            ON)
 
-project(STM32F303RE_TEST)
+project(TDD_function_generator_TEST)
 enable_language(C CXX ASM)
 
 enable_testing()
@@ -24,8 +24,8 @@ FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-add_library(AD9833 ../src/AD9833_driver.c)
-include_directories(../inc)
+add_library(AD9833 ../source/AD9833_driver.c)
+include_directories(../include)
 
 add_executable(AD9833_test main.cpp AD9833_test.cpp)
 
